@@ -7,3 +7,9 @@ data/*
 !data/.gitkeep
 
 .DS_Store
+
+# VS Code
+.vscode/
+
+# Local scripts (optional)
+scripts/
