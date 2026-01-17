@@ -1,0 +1,7 @@
+# Day 5 — Mini Error Analysis (Data Quality)
+
+From the current script outputs (Day1/Day3), the most visible data quality issues are: (1) missing values (e.g., age/salary/years_exp show NaN), (2) duplicate records (the same user_id appearing multiple times), and (3) invalid categorical entries (e.g., country = None). These issues distort basic metrics: duplicates inflate row counts and groupby aggregations, while missing values make summary statistics unstable and can silently change results depending on how they are handled.
+
+If this were production business data, the risks are practical and immediate: (a) reporting/decision risk — KPIs like active users, orders, and conversion rate can be over/under-estimated; (b) segmentation risk — geography or cohort breakdowns become unreliable when keys or categories are incomplete; (c) modeling risk — training data bias and leakage-like artifacts can lead to brittle models and degraded performance in real-world deployment.
+
+Next week, I would add two high-priority quality checks: (1) uniqueness checks on primary keys (e.g., users.user_id, orders.order_id must be unique; duplicates should fail fast or be deduplicated with an audit log), and (2) completeness + validity checks for critical fields (e.g., country is required and in an allowlist; salary > 0; age within a reasonable range). I would also output a small sample of offending rows to make debugging and data-source fixes efficient.
