@@ -97,6 +97,22 @@ Generate the Day 4 note with queries + outputs:
 sed -n '1,220p' notes/day4_sql.md
 ```
 
+## API (FastAPI)
+Run locally:
+```bash
+uvicorn src.app:app --reload --port 8000
+```
+
+Health check:
+```bash
+curl -s http://127.0.0.1:8000/health
+```
+
+Expected output:
+```text
+{"ok":true}
+```
+
 ## Notes
 * Local datasets and databases live under `data/` and are ignored by git by design.
 * For SQL, query definitions and results are stored in `notes/`.
