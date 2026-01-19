@@ -1,0 +1,11 @@
+name: dsml
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scikit-learn
+  - uvicorn
+  - fastapi
+prefix: /opt/homebrew/Caskroom/miniforge/base/envs/dsml

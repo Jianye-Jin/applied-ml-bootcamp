@@ -29,8 +29,18 @@ conda create -n dsml -y python=3.11
 conda activate dsml
 
 # 2) Install dependencies
-python -m pip install -r requirements.txt
+conda install -y -c conda-forge pandas numpy fastapi uvicorn sqlite
 > If you already have an env, just `conda activate dsml` and install requirements.
+```
+Optional: create env from file
+```bash
+conda env create -f environment.yml
+conda activate dsml
+```
+
+To update the file (export from your local env):
+```bash
+conda env export -n dsml --from-history > environment.yml
 ```
 
 ## Quickstart (Run)
